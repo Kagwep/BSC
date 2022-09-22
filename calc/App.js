@@ -28,56 +28,85 @@ import { TouchableOpacity, View,Text,Alert } from "react-native";
  sub = () => {
   let valueinitins = this.state.value
 
+  if (valueinitins != 0 ){
+
   this.setState({
     value : valueinitins - 1
   })
  }
 
+  }
+
+
   render (){
     return(
+    
 
-      <View style={{alignItems:"center",justifyContent:"center", padding:50}}>
+      <View style={{
+        alignItems:"center",
+        justifyContent:"center", 
+        flex:1,
+        flexDirection:"column"
+        }}>
         <Text> Calculator </Text>
-        <View>
-        <View style={{flex:"row"}}> 
+        <Text style={{padding:10}}>
+              {this.state.value}
+        </Text>
+        <View 
+        style={{
+          flexDirection:"row",
+          width:"100%",
+          borderColor:"green",
+          justifyContent:"space-around",
+          margin:5
+          
+          }}>
+            { this.state.value >= 10 ?
+            (<Text style={{margin:5 }}> You have reached 10</Text> ) 
+            : null
+            }
 
-          <Text style={{padding:10}}>
-            {this.state.value}
-          </Text>
+            <TouchableOpacity
 
-          </View>
-          <TouchableOpacity
+            onPress={this.add}
 
-          onPress={this.add}
+            style={{ width:70, 
+              height:30, 
+              backgroundColor:"green",
+              justifyContent:"center",
+              alignItems:"center",
+              borderRadius:5,
+              margin:5
+            }}
+            >
+              <Text> + </Text>
 
-          style={{ width:70, 
-            height:30, 
-            backgroundColor:"green",
-            justifyContent:"center",
-            alignItems:"center",
-            borderRadius:5,
-            margin:5
-          }}
-          >
-            <Text> + </Text>
+            </TouchableOpacity>
+            {
+              this.state.value == 0 ?
+              null
+              :
+              (
+                <TouchableOpacity
+                onPress={this.sub}
+                        style={{ width:70, 
+                          height:30, 
+                          backgroundColor:"red",
+                          justifyContent:"center",
+                          alignItems:"center",
+                          borderRadius:5,
+                          margin:5,
+                        }}
+    
+                        
+                >
+                  <Text> - </Text>
+                </TouchableOpacity>
 
-          </TouchableOpacity>
+              )
+            }
 
-          <TouchableOpacity
-          onPress={this.sub}
-                  style={{ width:70, 
-                    height:30, 
-                    backgroundColor:"red",
-                    justifyContent:"center",
-                    alignItems:"center",
-                    borderRadius:5,
-                    margin:5,
-                  }}
 
-                  
-          >
-            <Text> - </Text>
-          </TouchableOpacity>
         </View>
         
         {/* <TouchableOpacity 
