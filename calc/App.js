@@ -7,116 +7,96 @@ import { TouchableOpacity, View,Text,Alert } from "react-native";
   constructor (props){
     super(props);
 
-    this.state ={
-      value:0
-    }
-
+  
   }
 
-  ButtonClicked = () => {
-    Alert.alert(" Im clicked")
-
-  }
- add = () => {
-  let valueinit = this.state.value;
-
-  this.setState({
-    value : valueinit +1 
-  })
- }
-
- sub = () => {
-  let valueinitins = this.state.value
-
-  if (valueinitins != 0 ){
-
-  this.setState({
-    value : valueinitins - 1
-  })
- }
-
-  }
+  
 
 
   render (){
-    return(
-    
+    return (
+      <View style={{flex:1,borderWidth:2,borderColor:"blue",marginTop:25,flexDirection:"column"}}>
+        <View style={{flex:1,borderWidth:1,borderColor:"black",flexDirection:'row',justifyContent:"space-around",padding:2,alignItems:"center"}}>
+          <View style={{borderColor:"green",borderWidth:1,flex:1,padding:2,margin:2,height:50+"%",backgroundColor:"blue"}}> 
+            <Text > icon</Text>
+          </View>
+          <View style={{borderColor:"green",borderWidth:1,flex:9,borderRadius:2,height:50+"%",justifyContent:'flex-start',alignItems:"center",flexDirection:"row"}}> 
+            <Text > search products</Text>
+          </View>
+        </View>
+        <View style={{flex:1.5,borderWidth:1,borderColor:"black",flexDirection:"row",alignItems:"center",justifyContent:"flex-start"}}>
+          <View style={{width:20+"%",height:80+"%",borderWidth:1,padding:2,margin:2,borderRadius:5,backgroundColor:"brown",flexDirection:"column"}}>
+            
+            <View style={{height:60+"%",justifyContent:"center",alignItems:"center"}}>
+              <Text> IC </Text>
+            </View>
+            <View style={{height:30+"%"}}>
+            <Text> products</Text>
+            </View>
+            
+          </View>
+          <View style={{width:20+"%",height:80+"%",borderWidth:1,padding:2,margin:2,borderRadius:5,backgroundColor:"magenta"}}>
+          <View style={{height:60+"%",justifyContent:"center",alignItems:"center"}}>
+              <Text> IC </Text>
+            </View>
+            <View style={{height:30+"%"}}>
+            <Text> rep</Text>
+            </View>
+          </View>
+          <View style={{width:20+"%",height:80+"%",borderWidth:1,padding:2,margin:2,borderRadius:5,backgroundColor:"brown"}}>
+          <View style={{height:60+"%",justifyContent:"center",alignItems:"center"}}>
+              <Text> IC </Text>
+            </View>
+            <View style={{height:30+"%"}}>
+            <Text> products</Text>
+            </View>
+          </View>
+        </View>
+        <View style={{flex:1,borderWidth:1,borderColor:"black",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}> 
+          <TouchableOpacity style={{margin:5,backgroundColor:"red",padding:5,borderRadius:3}} > 
+            <Text> new products</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={{margin:5}}> 
+            <Text style={{color:"orange"}}> see all</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={{flex:3,borderWidth:1,borderColor:"black",flexDirection:"row",justifyContent:"space-between",alignItems:"center"}}>
+          <View style={{flex:1,borderWidth:1,height:95+"%",flexDirection:"column",margin:2,borderRadius:5,alignItems:"center",justifyContent:"space-between"}}>
+            <View style={{height:50+"%",borderRadius:5}}>
+               <Text> image </Text>
+               
+            </View>
+            <View style={{height:30+"%"}}>
+               <Text> desc </Text>
+               
+            </View>
+            <View style={{height:20+"%"}}> 
+              <Text> price </Text>
+              
+            </View>
+          </View>
+          <View style={{flex:1,borderWidth:1,height:95+"%",flexDirection:"column",margin:2,borderRadius:5,alignItems:"center",justifyContent:"space-between"}}>
+            <View>
+               <Text> image </Text>
+               
+            </View>
+            <View>
+               <Text> desc </Text>
+               
+            </View>
+            <View> 
+              <Text> price </Text>
+              
+            </View>
+          </View>
+        </View>
+        <View style={{flex:4.5,borderWidth:1,borderColor:"black",margin:2}}>
+          <View>
+            <Text> box </Text>
 
-      <View style={{
-        alignItems:"center",
-        justifyContent:"center", 
-        flex:1,
-        flexDirection:"column"
-        }}>
-        <Text> Calculator </Text>
-        <Text style={{padding:10}}>
-              {this.state.value}
-        </Text>
-        <View 
-        style={{
-          flexDirection:"row",
-          width:"100%",
-          borderColor:"green",
-          justifyContent:"space-around",
-          margin:5
-          
-          }}>
-            { this.state.value >= 10 ?
-            (<Text style={{margin:5 }}> You have reached 10</Text> ) 
-            : null
-            }
-
-            <TouchableOpacity
-
-            onPress={this.add}
-
-            style={{ width:70, 
-              height:30, 
-              backgroundColor:"green",
-              justifyContent:"center",
-              alignItems:"center",
-              borderRadius:5,
-              margin:5
-            }}
-            >
-              <Text> + </Text>
-
-            </TouchableOpacity>
-            {
-              this.state.value == 0 ?
-              null
-              :
-              (
-                <TouchableOpacity
-                onPress={this.sub}
-                        style={{ width:70, 
-                          height:30, 
-                          backgroundColor:"red",
-                          justifyContent:"center",
-                          alignItems:"center",
-                          borderRadius:5,
-                          margin:5,
-                        }}
-    
-                        
-                >
-                  <Text> - </Text>
-                </TouchableOpacity>
-
-              )
-            }
-
+          </View>
 
         </View>
-        
-        {/* <TouchableOpacity 
-        onPress={this.add}
-        style={{width:100,height:50,backgroundColor:'green', justifyContent:'center',alignItems:'center'}} > <Text> clic </Text>
-         </TouchableOpacity>
-         <TouchableOpacity 
-        onPress={this.sub}
-        style={{width:100,height:50,backgroundColor:'green', justifyContent:'center',alignItems:'center'}} > <Text>  - </Text>
-         </TouchableOpacity> */}
       </View>
     );
 
